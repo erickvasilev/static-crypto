@@ -16,20 +16,22 @@ npm install static-crypto
 ```js
 const static_crypto = require("static-crypto")
 
+let user_password = "RawUserPasswd";
+
 //encrypt
-let encryption = static_crypto.encrypt("RawUserPasswd","hello world")
+let encryption = static_crypto.encrypt(user_password,"hello world")
 
 console.log(encryption)
 
 //decrypt
 let decryption = static_crypto.decrypt(
-    "RawUserPasswd", 
+    user_password, 
     "ff47603fbb9278799dade5")
     
 console.log(decryption)
 
 //one way encryption
-let save_password = static_crypto.one_way ("RawUserPasswd")
+let save_password = static_crypto.one_way (user_password)
 
 console.log(save_password)
 ```
