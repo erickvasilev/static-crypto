@@ -1,0 +1,21 @@
+{
+  "name": "static-crypto",
+  "version": "1.0.0",
+  "description": "Simplify encryption and decryption using CryptoJS with static result",
+  "main": "static-crypto.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crypto",
+    "cryptojs",
+    "encryption",
+    "two",
+    "way",
+    "encryption",
+    "hash",
+    "salt"
+  ],
+  "author": "Erick Vasilev",
+  "license": "ISC"
+}
