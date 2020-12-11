@@ -16,8 +16,9 @@ function generate_from(password) {
 }
 
 exports.one_way = function (plain_text){
-    let encryption_key = generate_from(plain_text).salt
-    let iv = generate_from(plain_text).iv
+    let generated = generate_from(plain_text)
+    let encryption_key = generated.salt
+    let iv = generated.iv
     let cipher = crypto.createCipheriv(algorithm, Buffer.from(encryption_key, 'hex'), iv);
     let encrypted = cipher.update(plain_text);
     encrypted = Buffer.concat([encrypted, cipher.final()]);
@@ -25,8 +26,9 @@ exports.one_way = function (plain_text){
 }
 
 exports.encrypt = function (passwd, plain_text) {
-    let encryption_key = generate_from(passwd).key
-    let iv = generate_from(passwd).iv
+    let generated = generate_from(passwd)
+    let encryption_key = generated.key
+    let iv = generated.iv
     let cipher = crypto.createCipheriv(algorithm, Buffer.from(encryption_key, 'hex'), iv);
     let encrypted = cipher.update(plain_text);
     encrypted = Buffer.concat([encrypted, cipher.final()]);
@@ -35,8 +37,9 @@ exports.encrypt = function (passwd, plain_text) {
 }
 
 exports.decrypt = function (passwd, chipertext) {
-    let encryption_key = generate_from(passwd).key
-    let iv = generate_from(passwd).iv
+    let generated = generate_from(passwd)
+    let encryption_key = generated.key
+    let iv = generated.iv
     let encryptedText = Buffer.from(chipertext, 'hex')
     let decipher = crypto.createDecipheriv(algorithm, Buffer.from(encryption_key, 'hex'), iv);
     let decrypted = decipher.update(encryptedText);
